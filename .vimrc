@@ -58,6 +58,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Note: You don't set neobundle setting in .gvimrc!
 
 NeoBundle 'Shougo/neocomplcache.vim'
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/neosnippet.vim'
@@ -69,6 +70,9 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'glidenote/serverspec-snippets'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'ujihisa/unite-colorscheme'
+
 
 call neobundle#end()
 
@@ -218,6 +222,33 @@ let g:neosnippet#snippets_directory = [
       \'~/.vim/bundle/serverspec-snippets',
       \'~/.vim/bundle/vim-snippets/snippets'
       \]
+
+
+" =====================================================================
+" Unite
+" =====================================================================
+
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable =1
+let g:unite_source_file_mru_limit = 200
+nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+
+
+" =====================================================================
+" Vimshell
+" =====================================================================
+
+let g:vimshell_prompt_expr = 'getcwd()." > "'
+let g:vimshell_prompt_pattern = '^\f\+ > '
+nnoremap <silent> ,is :VimShell<CR>
+nnoremap <silent> ,ipy :VimShellInteractive python<CR>
+nnoremap <silent> ,irb :VimShellInteractive irb<CR>
+vmap <silent> ,ss :VimShellSendString<CR>
+nnoremap <silent> ,ss <S-v>:VimShellSendString<CR>
 
 " =====================================================================
 " References
