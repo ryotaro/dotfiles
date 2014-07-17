@@ -26,6 +26,7 @@ set fileencodings=iso-2022-jp,utf-8,cp932,euc-jp,default,latin
 set fenc=utf-8
 set enc=utf-8
 set autoindent
+set expandtab
 autocmd BufWritePost * silent :%s/\s\+$//ge
 colorscheme desert
 syntax on
@@ -34,7 +35,6 @@ syntax on
 autocmd FileType python setlocal textwidth=79
 autocmd FileType python setlocal tabstop=2
 autocmd FileType python setlocal shiftwidth=2
-autocmd FileType python setlocal expandtab
 
 " =====================================================================
 " NeoBundle
@@ -190,10 +190,11 @@ set statusline+=%{fugitive#statusline()}
 " =====================================================================
 " vim-indent-guides
 " =====================================================================
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+let g:indent_guides_auto_colors=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=110
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=140
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_guide_size=1
 
 " =====================================================================
 " neosnippet
