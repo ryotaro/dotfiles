@@ -27,12 +27,21 @@ set fenc=utf-8
 set enc=utf-8
 set autoindent
 set expandtab
+
+" Auto trailing space removal at saving.
 autocmd BufWritePost * silent :%s/\s\+$//ge
+
+" Default colorscheme.
 colorscheme desert
+
+" Always enable syntax mode.
 syntax on
 
 " JSON formatting in virtual mode
 vnoremap <C-J> :!python -m json.tool
+
+" Press Ctrl-Q three times to all quit
+nnoremap <C-Q><C-Q><C-Q> :qa!
 
 " Python only
 autocmd FileType python setlocal textwidth=79
@@ -72,8 +81,6 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/neosnippet.vim'
 " Snippet sets
 NeoBundle 'Shougo/neosnippet-snippets'
-" File tree
-NeoBundle 'scrooloose/nerdtree'
 " Vim git plugin
 NeoBundle 'tpope/vim-fugitive'
 " Ctrl _ _ to toggle comment.
@@ -90,7 +97,6 @@ NeoBundle 'glidenote/serverspec-snippets'
 NeoBundle 'Shougo/neomru.vim'
 " :Unite -auto-preview colorscheme to preview colorschemes.
 NeoBundle 'ujihisa/unite-colorscheme'
-
 
 call neobundle#end()
 
@@ -195,15 +201,13 @@ let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " =====================================================================
-" NERDTree
-" =====================================================================
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" =====================================================================
 " fugitive
 " =====================================================================
 autocmd QuickFixCmdPost *grep* cwindow
 set statusline+=%{fugitive#statusline()}
+nnoremap ,gs :Gstatus
+nnoremap ,gb :Gblame
+nnoremap ,gc :Gcommit
 
 " =====================================================================
 " vim-indent-guides
