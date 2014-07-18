@@ -31,6 +31,9 @@ autocmd BufWritePost * silent :%s/\s\+$//ge
 colorscheme desert
 syntax on
 
+" JSON formatting in virtual mode
+vnoremap <C-J> :!python -m json.tool
+
 " Python only
 autocmd FileType python setlocal textwidth=79
 autocmd FileType python setlocal tabstop=2
