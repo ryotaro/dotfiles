@@ -60,20 +60,35 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 
+" Enable auto completion.
 NeoBundle 'Shougo/neocomplcache.vim'
+" anything.el in Vim
 NeoBundle 'Shougo/unite.vim'
+" Required to execute vimshell
 NeoBundle 'Shougo/vimproc'
+" Enable vimshell
 NeoBundle 'Shougo/vimshell'
+" Enable snippet function
 NeoBundle 'Shougo/neosnippet.vim'
+" Snippet sets
 NeoBundle 'Shougo/neosnippet-snippets'
+" File tree
 NeoBundle 'scrooloose/nerdtree'
+" Vim git plugin
 NeoBundle 'tpope/vim-fugitive'
+" Ctrl _ _ to toggle comment.
 NeoBundle 'tomtom/tcomment_vim'
+" yss -> Insert ' , ds' -> Delete '.
 NeoBundle 'tpope/vim-surround'
+" Automatically notifies existence of trailing whitespaces.
 NeoBundle 'bronson/vim-trailing-whitespace'
+" Automatically indicates current indents.
 NeoBundle 'nathanaelkane/vim-indent-guides'
+" Set ft=ruby.serverspec to enable serverspec snippets.
 NeoBundle 'glidenote/serverspec-snippets'
+" Enable :Unite file_mru (remapped to ,uu)
 NeoBundle 'Shougo/neomru.vim'
+" :Unite -auto-preview colorscheme to preview colorschemes.
 NeoBundle 'ujihisa/unite-colorscheme'
 
 
