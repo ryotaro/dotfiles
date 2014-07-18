@@ -97,6 +97,8 @@ NeoBundle 'glidenote/serverspec-snippets'
 NeoBundle 'Shougo/neomru.vim'
 " :Unite -auto-preview colorscheme to preview colorschemes.
 NeoBundle 'ujihisa/unite-colorscheme'
+" Filer
+NeoBundle 'Shougo/vimfiler.vim'
 
 call neobundle#end()
 
@@ -274,8 +276,17 @@ vmap <silent> ,ss :VimShellSendString<CR>
 nnoremap <silent> ,ss <S-v>:VimShellSendString<CR>
 
 " =====================================================================
+" VimFiler
+" =====================================================================
+
+" ,vf to launch VimFiler.
+nnoremap ,vf :VimFiler -split -simple -winwidth=35 -no-quit
+
+" =====================================================================
 " References
 " =====================================================================
 "
-" - http://qiita.com/jnchito/items/5141b3b01bced9f7f48f
-"
+" - Plugins
+"   http://qiita.com/jnchito/items/5141b3b01bced9f7f48f
+" - VimFiler
+"   http://www.karakaram.com/vimfiler
