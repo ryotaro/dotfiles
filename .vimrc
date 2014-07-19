@@ -38,10 +38,10 @@ colorscheme Wombat
 syntax on
 
 " JSON formatting in virtual mode
-vnoremap <silent> <C-J> :!python -m json.tool
+vnoremap <silent> <C-J> :!python -m json.tool<CR>
 
 " Press Ctrl-Q three times to all quit
-nnoremap <C-Q><C-Q><C-Q> :qa!
+nnoremap <C-Q><C-Q><C-Q> :qa!<CR>
 
 " Python only
 autocmd FileType python setlocal textwidth=79
@@ -227,9 +227,9 @@ let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " =====================================================================
 autocmd QuickFixCmdPost *grep* cwindow
 set statusline+=%{fugitive#statusline()}
-nnoremap ,gs :Gstatus
-nnoremap ,gb :Gblame
-nnoremap ,gc :Gcommit
+nnoremap <silent> ,gs :Gstatus<CR>
+nnoremap <silent> ,gb :Gblame<CR>
+nnoremap <silent> ,gc :Gcommit<CR>
 
 " =====================================================================
 " vim-indent-guides
@@ -300,7 +300,7 @@ nnoremap <silent> ,ss <S-v>:VimShellSendString<CR>
 " =====================================================================
 
 " ,vf to launch VimFiler.
-nnoremap ,vf :VimFiler -split -simple -winwidth=35 -no-quit
+nnoremap ,vf :VimFiler -split -simple -winwidth=35 -no-quit<CR>
 
 
 " =====================================================================
