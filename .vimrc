@@ -76,8 +76,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplcache.vim'
 " anything.el in Vim
 NeoBundle 'Shougo/unite.vim'
-" Required to execute vimshell
-NeoBundle 'Shougo/vimproc'
+" Required to execute vimshell (add automated make)
+NeoBundle 'Shougo/vimproc', {
+    \ 'build' : {
+    \     'windows' : 'make -f make_mingw32.mak',
+    \     'cygwin'  : 'make -f make_cygwin.mak',
+    \     'mac'     : 'make -f make_mac.mak',
+    \     'unix'    : 'make -f make_unix.mak',
+    \    },
+    \ }
 " Enable vimshell
 NeoBundle 'Shougo/vimshell'
 " Enable snippet function
