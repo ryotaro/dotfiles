@@ -87,8 +87,6 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tomtom/tcomment_vim'
 " yss -> Insert ' , ds' -> Delete '.
 NeoBundle 'tpope/vim-surround'
-" Automatically notifies existence of trailing whitespaces.
-NeoBundle 'bronson/vim-trailing-whitespace'
 " Automatically indicates current indents.
 NeoBundle 'nathanaelkane/vim-indent-guides'
 " Set ft=ruby.serverspec to enable serverspec snippets.
