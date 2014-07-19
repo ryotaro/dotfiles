@@ -38,7 +38,7 @@ colorscheme Wombat
 syntax on
 
 " JSON formatting in virtual mode
-vnoremap <C-J> :!python -m json.tool
+vnoremap <silent> <C-J> :!python -m json.tool
 
 " Press Ctrl-Q three times to all quit
 nnoremap <C-Q><C-Q><C-Q> :qa!
