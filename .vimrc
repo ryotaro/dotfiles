@@ -107,6 +107,8 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'ujihisa/unite-colorscheme'
 " Filer
 NeoBundle 'Shougo/vimfiler.vim'
+" Execute code snippet within Vim window.
+NeoBundle 'thinca/vim-quickrun'
 " Favorite 3rd party color schemes (background: dark)
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'w0ng/vim-hybrid'
@@ -300,6 +302,23 @@ nnoremap <silent> ,ss <S-v>:VimShellSendString<CR>
 " ,vf to launch VimFiler.
 nnoremap ,vf :VimFiler -split -simple -winwidth=35 -no-quit
 
+
+" =====================================================================
+" Quickrun
+" =====================================================================
+
+" Holizontally split window & customize window height
+let g:quickrun_config = {
+\   "_" : {
+\       "outputter/buffer/split" : ":botright",
+\       "outputter/buffer/close_on_empty" : 1
+\   },
+\}
+
+nnoremap <silent> ,q<CR> :QuickRun<CR>
+nnoremap <silent> ,qpy   :QuickRun python<CR>
+nnoremap <silent> ,qrb   :QuickRun ruby<CR>
+nnoremap <silent> ,qsh   :QuickRun shell<CR>
 " =====================================================================
 " References
 " =====================================================================
