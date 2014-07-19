@@ -48,6 +48,9 @@ autocmd FileType python setlocal textwidth=79
 autocmd FileType python setlocal tabstop=2
 autocmd FileType python setlocal shiftwidth=2
 
+" Press ,cu to make CWD same as path that currently opened.
+nnoremap <silent> ,cu :cd %:p:h<CR>
+
 " =====================================================================
 " NeoBundle
 " =====================================================================
