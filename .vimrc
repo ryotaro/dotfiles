@@ -20,8 +20,8 @@ set background=dark
 set hidden
 set showmatch
 set number
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set fileencodings=iso-2022-jp,utf-8,cp932,euc-jp,default,latin
 set fenc=utf-8
 set enc=utf-8
@@ -32,7 +32,7 @@ set expandtab
 autocmd BufWritePost * silent :%s/\s\+$//ge
 
 " Default colorscheme.
-colorscheme desert
+colorscheme Wombat
 
 " Always enable syntax mode.
 syntax on
