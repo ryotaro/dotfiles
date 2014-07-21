@@ -13,7 +13,7 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V
 set statusline+=%{fugitive#statusline()}
 set title
 set showcmd
-set smartcase
+set ignorecase
 set hlsearch
 set incsearch
 set background=dark
