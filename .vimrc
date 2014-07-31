@@ -48,8 +48,8 @@ autocmd FileType python setlocal textwidth=79
 autocmd FileType python setlocal tabstop=2
 autocmd FileType python setlocal shiftwidth=2
 
-" Press ,cu to make CWD same as path that currently opened.
-nnoremap <silent> ,cu :cd %:p:h<CR>
+" Press ,cd to make CWD same as path that currently opened.
+nnoremap <silent> ,cd :cd %:p:h<CR>
 
 " =====================================================================
 " NeoBundle
@@ -109,6 +109,8 @@ NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'Shougo/vimfiler.vim'
 " Execute code snippet within Vim window.
 NeoBundle 'thinca/vim-quickrun'
+" Python Plugin
+NeoBundle 'davidhalter/jedi-vim'
 " Favorite 3rd party color schemes (background: dark)
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'w0ng/vim-hybrid'
@@ -289,7 +291,7 @@ nnoremap <silent> ,uc :<C-u>Unite -auto-preview colorscheme<CR>
 
 let g:vimshell_prompt_expr = 'getcwd()." > "'
 let g:vimshell_prompt_pattern = '^\f\+ > '
-nnoremap <silent> ,is :VimShell<CR>
+nnoremap <silent> ,is :VimShellPop<CR>
 nnoremap <silent> ,ipy :VimShellInteractive python<CR>
 nnoremap <silent> ,irb :VimShellInteractive irb<CR>
 vmap <silent> ,ss :VimShellSendString<CR>
