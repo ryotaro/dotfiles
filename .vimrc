@@ -32,7 +32,7 @@ set expandtab
 autocmd BufWritePost * silent :%s/\s\+$//ge
 
 " Default colorscheme.
-colorscheme Wombat
+colorscheme wombat
 
 " Always enable syntax mode.
 syntax on
