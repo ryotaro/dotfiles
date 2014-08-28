@@ -27,6 +27,7 @@ set fenc=utf-8
 set enc=utf-8
 set autoindent
 set expandtab
+set foldmethod=marker
 
 " Auto trailing space removal at saving.
 autocmd BufWritePost * silent :%s/\s\+$//ge
@@ -50,6 +51,10 @@ autocmd FileType python setlocal shiftwidth=2
 
 " Press ,cd to make CWD same as path that currently opened.
 nnoremap <silent> ,cd :cd %:p:h<CR>
+" Press ,fo to do :foldo
+" Press ,fc to do :foldc
+nnoremap <silent> ,fo :foldo<CR>
+nnoremap <silent> ,fc :foldc<CR>
 
 " =====================================================================
 " NeoBundle
