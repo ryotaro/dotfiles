@@ -33,7 +33,7 @@ set foldmethod=marker
 autocmd BufWritePost * silent :%s/\s\+$//ge
 
 " Default colorscheme.
-colorscheme wombat
+colorscheme desert
 
 " Always enable syntax mode.
 syntax on
@@ -102,8 +102,6 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tomtom/tcomment_vim'
 " yss -> Insert ' , ds' -> Delete '.
 NeoBundle 'tpope/vim-surround'
-" Automatically indicates current indents.
-NeoBundle 'nathanaelkane/vim-indent-guides'
 " Set ft=ruby.serverspec to enable serverspec snippets.
 NeoBundle 'glidenote/serverspec-snippets'
 " Enable :Unite file_mru (remapped to ,uu)
@@ -243,14 +241,6 @@ nnoremap <silent> ,gs :Gstatus<CR>
 nnoremap <silent> ,gb :Gblame<CR>
 nnoremap <silent> ,gc :Gcommit<CR>
 
-" =====================================================================
-" vim-indent-guides
-" =====================================================================
-let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=110
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=140
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_guide_size=1
 
 " =====================================================================
 " neosnippet
