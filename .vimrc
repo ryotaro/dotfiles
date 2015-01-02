@@ -32,11 +32,11 @@ set foldmethod=marker
 " Auto trailing space removal at saving.
 autocmd BufWritePost * silent :%s/\s\+$//ge
 
-" Default colorscheme.
-colorscheme desert
-
 " Always enable syntax mode.
 syntax on
+
+" Map Japanese-style back slask as leader key.
+map ¥ <leader>
 
 " JSON formatting in virtual mode
 vnoremap <silent> <C-J> :!python -m json.tool<CR>
