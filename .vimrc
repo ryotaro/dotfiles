@@ -323,6 +323,14 @@ nnoremap <silent> ,qrb   :QuickRun ruby<CR>
 nnoremap <silent> ,qsh   :QuickRun shell<CR>
 
 " =====================================================================
+" jedi-vim
+" =====================================================================
+
+" Do not show docstring during completion
+autocmd FileType python setlocal completeopt-=preview
+
+
+" =====================================================================
 " Lightline
 " =====================================================================
 
