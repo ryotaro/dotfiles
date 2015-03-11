@@ -20,8 +20,8 @@ set background=dark
 set hidden
 set showmatch
 set number
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set fileencodings=iso-2022-jp,utf-8,cp932,euc-jp,default,latin
 set fenc=utf-8
 set enc=utf-8
@@ -43,11 +43,6 @@ vnoremap <silent> <C-J> :!python -m json.tool<CR>
 
 " Press Ctrl-Q three times to all quit
 nnoremap <C-Q><C-Q><C-Q> :qa!<CR>
-
-" Python only
-autocmd FileType python setlocal textwidth=79
-autocmd FileType python setlocal tabstop=2
-autocmd FileType python setlocal shiftwidth=2
 
 " Press ,cd to make CWD same as path that currently opened.
 nnoremap <silent> ,cd :cd %:p:h<CR>
@@ -118,6 +113,10 @@ NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'itchyny/lightline.vim'
 " Undo tree
 NeoBundle 'sjl/gundo.vim'
+" AlpacaTags
+NeoBundle 'alpaca-tc/alpaca_tags'
+" CoffeeScript highlighting / auto-compile
+NeoBundle 'kchmck/vim-coffee-script'
 " Favorite 3rd party color schemes (background: dark)
 NeoBundle 'itchyny/landscape.vim'
 NeoBundle 'nanotech/jellybeans.vim'
@@ -407,6 +406,26 @@ endfunction
 " Gundo
 " =====================================================================
 nnoremap <silent> ,gu :GundoToggle<CR>
+
+" =====================================================================
+" AlpacaTags
+" =====================================================================
+augroup AlpacaTags
+  autocmd!
+  if exists(':Tags')
+    autocmd BufWritePost Gemfile TagsBundle
+    autocmd BufEnter * TagsSet
+    " 毎回保存と同時更新する場合はコメントを外す
+    " autocmd BufWritePost * TagsUpdate
+  endif
+augroup END
+
+
+" =====================================================================
+" CoffeeScript
+" =====================================================================
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 
 " =====================================================================
 " References
