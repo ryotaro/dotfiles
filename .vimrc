@@ -29,6 +29,9 @@ set autoindent
 set expandtab
 set foldmethod=marker
 
+" Disable swap.
+set noswapfile
+
 " Auto trailing space removal at saving.
 autocmd BufWritePost * silent :%s/\s\+$//ge
 
@@ -117,6 +120,8 @@ NeoBundle 'sjl/gundo.vim'
 NeoBundle 'alpaca-tc/alpaca_tags'
 " CoffeeScript highlighting / auto-compile
 NeoBundle 'kchmck/vim-coffee-script'
+" Rails
+NeoBundle 'tpope/vim-rails'
 " Favorite 3rd party color schemes (background: dark)
 NeoBundle 'itchyny/landscape.vim'
 NeoBundle 'nanotech/jellybeans.vim'
