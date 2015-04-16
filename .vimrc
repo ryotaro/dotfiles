@@ -28,6 +28,7 @@ set enc=utf-8
 set autoindent
 set expandtab
 set foldmethod=marker
+set cursorline
 
 " Disable swap.
 set noswapfile
@@ -53,6 +54,8 @@ nnoremap <silent> ,cd :cd %:p:h<CR>
 " Press ,fc to do :foldc
 nnoremap <silent> ,fo :foldo<CR>
 nnoremap <silent> ,fc :foldc<CR>
+" Press ,n to do :nohl
+nnoremap <silent> ,n :nohl<CR>
 
 " =====================================================================
 " NeoBundle
@@ -440,3 +443,5 @@ autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 "   http://qiita.com/jnchito/items/5141b3b01bced9f7f48f
 " - VimFiler
 "   http://www.karakaram.com/vimfiler
+"
+colorscheme molokai
