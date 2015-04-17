@@ -54,8 +54,15 @@ nnoremap <silent> ,cd :cd %:p:h<CR>
 " Press ,fc to do :foldc
 nnoremap <silent> ,fo :foldo<CR>
 nnoremap <silent> ,fc :foldc<CR>
-" Press ,n to do :nohl
-nnoremap <silent> ,n :nohl<CR>
+" Press ,N to do :nohl
+nnoremap <silent> ,N :nohl<CR>
+" Press ,n / ,p to do :cn / :cp
+nnoremap <silent> ,n :cn<CR>
+nnoremap <silent> ,p :cp<CR>
+" Press ,+ / ,- to do window resizing.
+nnoremap <silent> ,+ 10<C-W>+
+nnoremap <silent> ,- 10<C-W>-
+
 
 " =====================================================================
 " NeoBundle
