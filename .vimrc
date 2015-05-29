@@ -60,10 +60,10 @@ nnoremap <silent> ,N :nohl<CR>
 nnoremap <silent> ,n :cn<CR>
 nnoremap <silent> ,p :cp<CR>
 " Press ,+ / ,-  |  ,< / ,> to do window resizing.
-nnoremap <silent> ,+ 10<C-W>+
-nnoremap <silent> ,- 10<C-W>-
-nnoremap <silent> ,< 10<C-W><
-nnoremap <silent> ,> 10<C-W>>
+nnoremap <silent> ,+ 5<C-W>+
+nnoremap <silent> ,- 5<C-W>-
+nnoremap <silent> ,< 5<C-W><
+nnoremap <silent> ,> 5<C-W>>
 
 
 " =====================================================================
