@@ -255,6 +255,7 @@ set statusline+=%{fugitive#statusline()}
 nnoremap <silent> ,gs :Gstatus<CR>
 nnoremap <silent> ,gb :Gblame<CR>
 nnoremap <silent> ,gc :Gcommit<CR>
+nnoremap <silent> ,gg :Ggrep
 
 
 " =====================================================================
@@ -446,6 +447,9 @@ augroup END
 " =====================================================================
 au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
 autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
+autocmd BufWritePost *.coffee silent make!
+autocmd QuickFixCmdPost * nested cwindow | redraw!
+nnoremap <silent> ,cc :CoffeeCompile vert <CR><C-w>h
 
 " =====================================================================
 " Syntastic
