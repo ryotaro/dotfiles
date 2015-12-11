@@ -121,6 +121,8 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'tpope/vim-rails'
 " Syntastic
 NeoBundle 'scrooloose/syntastic'
+" Indent guide
+NeoBundle 'nathanaelkane/vim-indent-guides.git'
 " deoplete
 NeoBundle 'Shougo/deoplete.nvim'
 
@@ -374,6 +376,13 @@ endfunction
 
 " Execute autopep8 with <leader>+p
 autocmd FileType python nnoremap <leader>p :call Autopep8()<CR>
+
+
+" =====================================================================
+" Indent Guide
+" =====================================================================
+let g:indent_guides_enable_on_vim_startup = 1
+
 
 " =====================================================================
 " FZF
