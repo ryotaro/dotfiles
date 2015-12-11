@@ -91,15 +91,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " anything.el in Vim
 NeoBundle 'Shougo/unite.vim'
-" Required to execute vimshell (add automated make)
-NeoBundle 'Shougo/vimproc', {
-    \ 'build' : {
-    \     'windows' : 'make -f make_mingw32.mak',
-    \     'cygwin'  : 'make -f make_cygwin.mak',
-    \     'mac'     : 'make -f make_mac.mak',
-    \     'unix'    : 'make -f make_unix.mak',
-    \    },
-    \ }
 " Enable snippet function
 NeoBundle 'Shougo/neosnippet.vim'
 " Snippet sets
@@ -217,17 +208,6 @@ nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 nnoremap <silent> ,uc :<C-u>Unite -auto-preview colorscheme<CR>
 
-" =====================================================================
-" Vimshell
-" =====================================================================
-
-let g:vimshell_prompt_expr = 'getcwd()." > "'
-let g:vimshell_prompt_pattern = '^\f\+ > '
-nnoremap <silent> ,is :VimShellPop<CR>
-nnoremap <silent> ,ipy :VimShellInteractive python<CR>
-nnoremap <silent> ,irb :VimShellInteractive irb<CR>
-vmap <silent> ,ss :VimShellSendString<CR>
-nnoremap <silent> ,ss <S-v>:VimShellSendString<CR>
 
 " =====================================================================
 " VimFiler
