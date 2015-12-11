@@ -402,13 +402,5 @@ set rtp+=/usr/local/opt/fzf
 nnoremap <silent> ,fz :FZF<CR>
 
 
-" =====================================================================
-" References
-" =====================================================================
-"
-" - Plugins
-"   http://qiita.com/jnchito/items/5141b3b01bced9f7f48f
-" - VimFiler
-"   http://www.karakaram.com/vimfiler
-"
+
 colorscheme molokai
