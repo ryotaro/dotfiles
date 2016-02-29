@@ -148,6 +148,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'vim-scripts/Wombat'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/rdark'
+NeoBundle 'tpope/vim-surround'
 
 call neobundle#end()
 
