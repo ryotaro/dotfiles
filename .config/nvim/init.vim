@@ -130,12 +130,14 @@ NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
 \     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make',
+\     'mac' : 'make -f make_mac.mak',
 \     'linux' : 'make',
 \     'unix' : 'gmake',
 \    },
 \ }
 
+" Ruby Support
+NeoBundle 'vim-ruby/vim-ruby'
 
 " Favorite 3rd party color schemes (background: dark)
 NeoBundle 'itchyny/landscape.vim'
@@ -149,6 +151,8 @@ NeoBundle 'vim-scripts/Wombat'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/rdark'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'Quramy/tsuquyomi'
 
 call neobundle#end()
 
@@ -167,6 +171,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby set omnifunc=rubycomplete#Complete
 
 " =====================================================================
 " fugitive
@@ -364,6 +369,8 @@ nnoremap <silent> ,cc :CoffeeCompile vert <CR><C-w>h
 " Syntastic
 " =====================================================================
 let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+let g:syntastic_check_on_open = 1
 
 " =====================================================================
 " Autopep8
@@ -408,6 +415,12 @@ let g:indent_guides_enable_on_vim_startup = 1
 set rtp+=/usr/local/opt/fzf
 nnoremap <silent> ,fz :FZF<CR>
 
-
+" =====================================================================
+" TypeScript
+" =====================================================================
+autocmd FileType typescript setlocal completeopt+=menu,preview
+let g:tsuquyomi_completion_detail = 1
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
 
 colorscheme molokai
