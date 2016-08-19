@@ -24,8 +24,8 @@ set background=dark
 set hidden
 set showmatch
 set number
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set fileencodings=utf-8,iso-2022-jp,cp932,euc-jp,default,latin
 set fenc=utf-8
 set enc=utf-8
@@ -125,6 +125,8 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'nathanaelkane/vim-indent-guides.git'
 " deoplete
 NeoBundle 'Shougo/deoplete.nvim'
+" pug (jade)
+NeoBundle 'digitaltoad/vim-pug.git'
 " vimproc: enables external grep
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
@@ -135,7 +137,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'unix' : 'gmake',
 \    },
 \ }
-
+" Snippets
+NeoBundle 'honza/vim-snippets'
 " Ruby Support
 NeoBundle 'vim-ruby/vim-ruby'
 
@@ -205,14 +208,14 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
-
-let g:neosnippet#snippets_directory = [
-      \'~/.vim/snippets',
-      \'~/.vim/bundle/serverspec-snippets',
-      \'~/.vim/bundle/vim-snippets/snippets'
-      \]
-
-
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/neosnippets'
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+" let g:neosnippet#snippets_directory = [
+"       \'~/.vim/snippets',
+"       \'~/.vim/bundle/neosnippet-snippets/neosnippets',
+"       \]
 " =====================================================================
 " Unite
 " =====================================================================
@@ -419,6 +422,7 @@ nnoremap <silent> ,fz :FZF<CR>
 " TypeScript
 " =====================================================================
 autocmd FileType typescript setlocal completeopt+=menu,preview
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
 let g:tsuquyomi_completion_detail = 1
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
