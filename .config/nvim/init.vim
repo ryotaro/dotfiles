@@ -373,7 +373,9 @@ nnoremap <silent> ,cc :CoffeeCompile vert <CR><C-w>h
 " =====================================================================
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+nnoremap <silent> <leader>s :SyntasticCheck <CR>
 
 " =====================================================================
 " Autopep8
@@ -418,13 +420,14 @@ let g:indent_guides_enable_on_vim_startup = 1
 set rtp+=/usr/local/opt/fzf
 nnoremap <silent> ,fz :FZF<CR>
 
+
 " =====================================================================
 " TypeScript
 " =====================================================================
 autocmd FileType typescript setlocal completeopt+=menu,preview
 autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
-let g:tsuquyomi_completion_detail = 1
-let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_completion_detail = 0
+let g:tsuquyomi_disable_quickfix = 0
 let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint'] " You shouldn't use 'tsc' checker.
 
 colorscheme molokai
