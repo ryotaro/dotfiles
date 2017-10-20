@@ -24,8 +24,8 @@ set background=dark
 set hidden
 set showmatch
 set number
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set fileencodings=utf-8,iso-2022-jp,cp932,euc-jp,default,latin
 set fenc=utf-8
 set enc=utf-8
@@ -141,6 +141,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'honza/vim-snippets'
 " Ruby Support
 NeoBundle 'vim-ruby/vim-ruby'
+" Ansible helper
+NeoBundle 'chase/vim-ansible-yaml'
 
 " Favorite 3rd party color schemes (background: dark)
 NeoBundle 'itchyny/landscape.vim'
@@ -371,10 +373,10 @@ nnoremap <silent> ,cc :CoffeeCompile vert <CR><C-w>h
 " =====================================================================
 " Syntastic
 " =====================================================================
-let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checkers = ['mypy', 'flake8', 'py2kwarn']
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
 nnoremap <silent> <leader>s :SyntasticCheck <CR>
 
 " =====================================================================
