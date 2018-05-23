@@ -91,10 +91,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " anything.el in Vim
 NeoBundle 'Shougo/unite.vim'
-" Enable snippet function
-NeoBundle 'Shougo/neosnippet.vim'
-" Snippet sets
-NeoBundle 'Shougo/neosnippet-snippets'
 " Vim git plugin
 NeoBundle 'tpope/vim-fugitive'
 " Ctrl _ _ to toggle comment.
@@ -185,39 +181,9 @@ autocmd QuickFixCmdPost *grep* cwindow
 set statusline+=%{fugitive#statusline()}
 nnoremap <silent> ,gs :Gstatus<CR>
 nnoremap <silent> ,gb :Gblame<CR>
-nnoremap <silent> ,gc :Gcommit<CR>
+nnoremap <silent> ,gc :Gcommit -S<CR>
 nnoremap <silent> ,gg :Ggrep
 
-
-" =====================================================================
-" neosnippet
-" =====================================================================
-
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/neosnippets'
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-" let g:neosnippet#snippets_directory = [
-"       \'~/.vim/snippets',
-"       \'~/.vim/bundle/neosnippet-snippets/neosnippets',
-"       \]
 " =====================================================================
 " Unite
 " =====================================================================
