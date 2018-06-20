@@ -154,6 +154,7 @@ NeoBundle 'vim-scripts/rdark'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'Quramy/tsuquyomi'
+NeoBundle 'mazubieta/gitlink-vim'
 
 call neobundle#end()
 
@@ -397,5 +398,17 @@ autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()
 let g:tsuquyomi_completion_detail = 0
 let g:tsuquyomi_disable_quickfix = 0
 let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint'] " You shouldn't use 'tsc' checker.
+
+" =====================================================================
+" GitLink
+" =====================================================================
+function! CopyGitLink(...) range
+  redir @+
+  silent echo gitlink#GitLink(get(a:, 1, 0))
+  redir END
+endfunction
+nmap <silent>,gl :call CopyGitLink()<CR>
+vmap <silent>,gl :call CopyGitLink(1)<CR>
+
 
 colorscheme molokai
