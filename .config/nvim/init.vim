@@ -1,3 +1,7 @@
+" Install dein.vim before running this file via following command..
+" bash <(curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh) ~/.cache/dein
+
+
 " In case I am using fish shell
 set shell=bash
 
@@ -71,99 +75,70 @@ nnoremap <silent> ,> 5<C-W>>
 
 
 " =====================================================================
-" NeoBundle
+" Dein
 " =====================================================================
-if has('vim_starting')
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+
+
+
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
 endif
 
 " Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+set runtimepath+=/home/ryotaro/.cache/dein/repos/github.com/Shougo/dein.vim
 
-" Let NeoBundle manage NeoBundle
 " Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+if dein#load_state('/home/ryotaro/.cache/dein')
+  call dein#begin('/home/ryotaro/.cache/dein')
 
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
+  " Let dein manage dein
+  " Required:
+  call dein#add('/home/ryotaro/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-" anything.el in Vim
-NeoBundle 'Shougo/unite.vim'
-" Vim git plugin
-NeoBundle 'tpope/vim-fugitive'
-" Ctrl _ _ to toggle comment.
-NeoBundle 'tomtom/tcomment_vim'
-" Enable :Unite file_mru (remapped to ,uu)
-NeoBundle 'Shougo/neomru.vim'
-" :Unite -auto-preview colorscheme to preview colorschemes.
-NeoBundle 'ujihisa/unite-colorscheme'
-" Filer
-NeoBundle 'Shougo/vimfiler.vim'
-" Execute code snippet within Vim window.
-NeoBundle 'thinca/vim-quickrun'
-" Python Plugin
-NeoBundle 'davidhalter/jedi-vim'
-" Status line customize
-NeoBundle 'itchyny/lightline.vim'
-" Undo tree
-NeoBundle 'sjl/gundo.vim'
-" AlpacaTags
-NeoBundle 'alpaca-tc/alpaca_tags'
-" CoffeeScript highlighting / auto-compile
-NeoBundle 'kchmck/vim-coffee-script'
-" Rails
-NeoBundle 'tpope/vim-rails'
-" Syntastic
-NeoBundle 'scrooloose/syntastic'
-" Indent guide
-NeoBundle 'nathanaelkane/vim-indent-guides.git'
-" deoplete
-NeoBundle 'Shougo/deoplete.nvim'
-" pug (jade)
-NeoBundle 'digitaltoad/vim-pug.git'
-" vimproc: enables external grep
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
-" Snippets
-NeoBundle 'honza/vim-snippets'
-" Ruby Support
-NeoBundle 'vim-ruby/vim-ruby'
-" Ansible helper
-NeoBundle 'chase/vim-ansible-yaml'
+  " Add or remove your plugins here like this:
+  call dein#add('Shougo/neomru.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/unite.vim')
+  call dein#add('chase/vim-ansible-yaml')
+  call dein#add('davidhalter/jedi-vim')
+  call dein#add('digitaltoad/vim-pug.git')
+  call dein#add('honza/vim-snippets')
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('nathanaelkane/vim-indent-guides.git')
+  call dein#add('scrooloose/syntastic')
+  call dein#add('sjl/gundo.vim')
+  call dein#add('thinca/vim-quickrun')
+  call dein#add('tomasr/molokai')
+  call dein#add('tomtom/tcomment_vim')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-surround')
+  call dein#add('ujihisa/unite-colorscheme')
 
-" Favorite 3rd party color schemes (background: dark)
-NeoBundle 'itchyny/landscape.vim'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'vim-scripts/twilight'
-NeoBundle 'jonathanfilip/vim-lucius'
-NeoBundle 'jpo/vim-railscasts-theme'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'vim-scripts/Wombat'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'vim-scripts/rdark'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'leafgarland/typescript-vim'
-NeoBundle 'Quramy/tsuquyomi'
-NeoBundle 'mazubieta/gitlink-vim'
-
-call neobundle#end()
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
 
 " Required:
 filetype plugin indent on
+syntax enable
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
+
+
+filetype plugin indent on
+syntax enable
+
+
+" Required:
+filetype plugin indent on
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
