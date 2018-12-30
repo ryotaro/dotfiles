@@ -132,14 +132,6 @@ endif
 
 "End dein Scripts-------------------------
 
-
-filetype plugin indent on
-syntax enable
-
-
-" Required:
-filetype plugin indent on
-
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " Enable omni completion.
