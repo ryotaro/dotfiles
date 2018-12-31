@@ -106,7 +106,6 @@ if dein#load_state('/home/ryotaro/.cache/dein')
   call dein#add('digitaltoad/vim-pug.git')
   call dein#add('honza/vim-snippets')
   call dein#add('itchyny/lightline.vim')
-  call dein#add('nathanaelkane/vim-indent-guides.git')
   call dein#add('scrooloose/syntastic')
   call dein#add('sjl/gundo.vim')
   call dein#add('thinca/vim-quickrun')
@@ -172,14 +171,6 @@ nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 nnoremap <silent> ,uc :<C-u>Unite -auto-preview colorscheme<CR>
 nnoremap <silent> ,ug :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-
-
-" =====================================================================
-" VimFiler
-" =====================================================================
-
-" ,vf to launch VimFiler.
-nnoremap ,vf :VimFiler -split -simple -winwidth=35 -no-quit<CR>
 
 
 " =====================================================================
@@ -290,25 +281,15 @@ augroup AlpacaTags
   if exists(':Tags')
     autocmd BufWritePost Gemfile TagsBundle
     autocmd BufEnter * TagsSet
-    " 毎回保存と同時更新する場合はコメントを外す
     " autocmd BufWritePost * TagsUpdate
   endif
 augroup END
-
-
-" =====================================================================
-" CoffeeScript
-" =====================================================================
-au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
-autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
-autocmd QuickFixCmdPost * nested cwindow | redraw!
-nnoremap <silent> ,cc :CoffeeCompile vert <CR><C-w>h
 
 " =====================================================================
 " Syntastic
 " =====================================================================
 let g:syntastic_python_checkers = ['mypy', 'flake8', 'py2kwarn']
-let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+let g:syntastic_python_python_exec = '/usr/bin/python3'  " Ubuntu16.04 default
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 nnoremap <silent> <leader>s :SyntasticCheck <CR>
@@ -345,37 +326,9 @@ autocmd FileType python nnoremap <leader>p :call Autopep8()<CR>
 
 
 " =====================================================================
-" Indent Guide
-" =====================================================================
-let g:indent_guides_enable_on_vim_startup = 1
-
-
-" =====================================================================
 " FZF
 " =====================================================================
 set rtp+=/usr/local/opt/fzf
 nnoremap <silent> ,fz :FZF<CR>
-
-
-" =====================================================================
-" TypeScript
-" =====================================================================
-autocmd FileType typescript setlocal completeopt+=menu,preview
-autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
-let g:tsuquyomi_completion_detail = 0
-let g:tsuquyomi_disable_quickfix = 0
-let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint'] " You shouldn't use 'tsc' checker.
-
-" =====================================================================
-" GitLink
-" =====================================================================
-function! CopyGitLink(...) range
-  redir @+
-  silent echo gitlink#GitLink(get(a:, 1, 0))
-  redir END
-endfunction
-nmap <silent>,gl :call CopyGitLink()<CR>
-vmap <silent>,gl :call CopyGitLink(1)<CR>
-
 
 colorscheme molokai
